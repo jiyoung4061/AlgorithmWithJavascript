@@ -24,7 +24,7 @@ array.push(shift()) : 맨앞의 요소를 삭제한 후, 맨 뒤에 push
 따라서, 해당 동물의 index를 찾아서 1개 지워주는 -> splice사용
 ```
 
-### 트리(2진 깊이우선 탐색)
+### 트리(이진 깊이우선 탐색)
 **Set** : 중복값을 제외한 유일한 값을 저장
 add() / delete : 새로운 요소 추가/삭제
 clear() : 모든 요소 제거
@@ -36,12 +36,12 @@ set() : key, value값을 넣고 그 객체 반환
 get() : 주어진 key에 해당하는 값 반환
 has() : 주어진 key 값이 있는지 확인하고 *boolean* 값 반환
 
-**깊이우선탐색(Depth First Search) => Stack**
-    A
-   / \
-  B   C
-/    / \
-D   E   F
+**깊이우선탐색(Depth First Search) => Stack**  
+A  
+| \  
+B C  
+|&nbsp;&nbsp;&nbsp;| \  
+D E F  
 *A - B - D - C - E - F*
 한 방향으로 가면서 검사하기
 막힌 노드는 포기하고 마지막 따라온 간선으로 되돌아간다
@@ -49,14 +49,14 @@ D   E   F
     stack : current에 있는 노드를 방문 경로에 넣는 순간 current노드에 연결된 노드를 넣음
     방문경로 : 이미 지나온 노드
 
-**너비우선탐색(Breadth First Search) => Queue**
-      A
-    /    \
-   B      C
-  / \    / \
- D   E  F   G
-/
-H
+**너비우선탐색(Breadth First Search) => Queue**  
+A   
+| \  
+B &nbsp;C  
+| \ &nbsp;&nbsp;| \  
+D E F G  
+|  
+H  
 *A - B - C - D - E - F - G - H*
 가장 가까운 점 부터 방문, 먼 노드는 가장 나중에 방문
 =>  current : 현재노드
@@ -91,6 +91,7 @@ console.log(x.map(value => value**2)); // => [1, 4, 9, 16, 25, 36, 49]
 ```
 
 **ASCII CODE를 변환하고 문자열로 만들기**
+String.fromCharCode()를 사용해 char로 변환후 하나씩 += 해 문자열 만들기
 ```javascript
 let resultOfMin = minOfDfs(graph, 100)
 let result2 = '';
@@ -99,4 +100,3 @@ for (const item of resultOfMin) {
     result2 += String.fromCharCode(item)
 }
 ```
-String.fromCharCode()를 사용해 char로 변환후 하나씩 += 해 문자열 만들기
